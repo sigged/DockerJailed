@@ -5,7 +5,7 @@ EXPOSE 44344
 
 FROM microsoft/dotnet:2.1-sdk AS build
 WORKDIR /src
-COPY ["DockerJailed/DockerJailed.csproj", "DockerJailed/"]
+COPY ["DockerJailed.csproj", "DockerJailed/"]
 RUN dotnet restore "DockerJailed/DockerJailed.csproj"
 COPY . .
 WORKDIR "/src/DockerJailed"
