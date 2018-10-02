@@ -9,10 +9,10 @@ COPY ["DockerJailed.csproj", "DockerJailed/"]
 RUN dotnet restore "DockerJailed/DockerJailed.csproj"
 COPY . .
 WORKDIR "/src/DockerJailed"
-RUN dotnet build "DockerJailed.csproj" -c Release -o /app
+RUN dotnet build "DockerJailed/DockerJailed.csproj" -c Release -o /app
 
 FROM build AS publish
-RUN dotnet publish "DockerJailed.csproj" -c Release -o /app
+RUN dotnet publish "DockerJailed/DockerJailed.csproj" -c Release -o /app
 
 FROM base AS final
 WORKDIR /app
